@@ -25,7 +25,7 @@ public class PusherConfiguration {
     }
 
     @Bean
-    public PushBeanPostProcessor processor(BitskinProperties properties) {
-        return new PushBeanPostProcessor(properties);
+    public PushBeanPostProcessor processor() {
+        return new PushBeanPostProcessor();
     }
 }
