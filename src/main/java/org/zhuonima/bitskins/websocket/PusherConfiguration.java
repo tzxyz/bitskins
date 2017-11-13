@@ -10,18 +10,18 @@ import org.zhuonima.bitskins.configuration.BitskinProperties;
 public class PusherConfiguration {
 
     @Bean
-    public PusherOptions options() {
+    public PusherOptions options(BitskinProperties properties) {
         PusherOptions options = new PusherOptions();
-        options.setEncrypted(true);
-        options.setWsPort(443);
-        options.setWssPort(443);
-        options.setHost("notifier.bitskins.com");
+        options.setEncrypted(properties.isEncrypted());
+        options.setWsPort(properties.getWsPort());
+        options.setWssPort(properties.getWssPort());
+        options.setHost(properties.getHost());
         return options;
     }
 
     @Bean
     public Pusher pusher(PusherOptions options, BitskinProperties properties) {
-        return new Pusher(properties.getApiKey(), options);
+        return new Pusher(properties.getAppId(), options);
     }
 
     @Bean

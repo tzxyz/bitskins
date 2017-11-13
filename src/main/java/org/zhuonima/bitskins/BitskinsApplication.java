@@ -1,15 +1,17 @@
 package org.zhuonima.bitskins;
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class BitskinsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BitskinsApplication.class, args);
+		new SpringApplicationBuilder()
+				.bannerMode(Banner.Mode.OFF)
+				.sources(BitskinsApplication.class)
+				.run(args);
 	}
-
-
 
 }

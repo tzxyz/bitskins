@@ -8,5 +8,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "bitskins")
 public class BitskinProperties {
+
+    private String appId;
+
     private String apiKey;
+
+    private String host;
+
+    private int wsPort;
+
+    private int wssPort;
+
+    private boolean encrypted;
 }
