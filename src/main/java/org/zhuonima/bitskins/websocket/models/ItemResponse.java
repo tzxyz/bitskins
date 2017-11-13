@@ -1,10 +1,10 @@
-package org.zhuonima.bitskins.model;
+package org.zhuonima.bitskins.websocket.models;
 
-import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 @Data
-public class ItemListedResponse {
+public abstract class ItemResponse {
     @JsonProperty("app_id")
     private String appId;
 

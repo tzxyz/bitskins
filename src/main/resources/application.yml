@@ -8,9 +8,28 @@ bitskins:
 
 logging:
   level:
-    root: error
-    org.zhuonima.bitskins: info
+    root: info
 
 spring:
   application:
     name: bitskins-api
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+  datasource:
+    url: jdbc:h2:mem:bitskin-apis;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: zhuonima
+    password: bitskin@19930112tz
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /admin
+management:
+  security:
+    enabled: false
+
+

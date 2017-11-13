@@ -24,8 +24,4 @@ public class PusherConfiguration {
         return new Pusher(properties.getAppId(), options);
     }
 
-    @Bean
-    public PushBeanPostProcessor processor() {
-        return new PushBeanPostProcessor();
-    }
 }
