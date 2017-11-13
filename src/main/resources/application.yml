@@ -1,0 +1,8 @@
+bitskins:
+  apiKey: c0eef4118084f8164bec65e6253bf195
+
+
+logging:
+  level:
+    root: error
+    org.zhuonima.bitskins: info
