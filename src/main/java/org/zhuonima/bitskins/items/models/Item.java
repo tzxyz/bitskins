@@ -36,6 +36,7 @@ public class Item {
     @Max(300)
     private BigDecimal limitedPrice;
 
+    @Column(columnDefinition = "TINYINT(2) DEFAULT '0'")
     private boolean enable;
 
     @CreatedDate
@@ -43,8 +44,10 @@ public class Item {
     private Date created;
 
     @LastModifiedDate
+    @Column(columnDefinition = "INT(11) DEFAULT '0'")
     private long timestamp;
 
     @Version
+    @Column(columnDefinition = "TINYINT(2) DEFAULT '0'")
     private byte version;
 }

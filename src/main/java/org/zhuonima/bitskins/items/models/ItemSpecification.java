@@ -9,6 +9,6 @@ public class ItemSpecification {
     }
 
     public static Specification<Item> nameEqual(String name) {
-        return name == null ? null : (root, cq, cb) -> cb.equal(root.get("name"), name);
+        return name == null ? null : (root, cq, cb) -> cb.equal(root.get("marketHashName"), name);
     }
 }
