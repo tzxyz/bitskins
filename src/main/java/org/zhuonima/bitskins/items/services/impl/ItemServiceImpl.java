@@ -1,10 +1,11 @@
 package org.zhuonima.bitskins.items.services.impl;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.zhuonima.bitskins.items.models.Item;
 import org.zhuonima.bitskins.items.repositories.ItemRepository;
+import org.zhuonima.bitskins.items.requests.ItemQuery;
 import org.zhuonima.bitskins.items.services.ItemService;
 
 @Service
@@ -17,8 +18,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Page<Item> findAll(Pageable pageable) {
-        return itemRepository.findAll(pageable);
+    public Page<Item> findAll(ItemQuery query) {
+        return itemRepository.findAll(
+                query.toSpecification(),
+                new PageRequest(query.getPage(), query.getSize())
+        );
     }
 
     @Override

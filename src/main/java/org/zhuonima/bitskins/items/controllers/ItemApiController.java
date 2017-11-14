@@ -1,11 +1,9 @@
 package org.zhuonima.bitskins.items.controllers;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.zhuonima.bitskins.items.models.Item;
+import org.zhuonima.bitskins.items.requests.ItemQuery;
 import org.zhuonima.bitskins.items.services.ItemService;
 
 @RestController
@@ -19,7 +17,16 @@ public class ItemApiController {
     }
 
     @GetMapping
-    public Page<Item> findAll() {
-        return itemService.findAll(new PageRequest(0, 10));
+    public Page<Item> findAll(@RequestParam(required = false) String appId,
+                              @RequestParam(required = false) String name,
+                              @RequestParam(required = false, defaultValue = "0") int page,
+                              @RequestParam(required = false, defaultValue = "20") int size) {
+
+        return itemService.findAll(new ItemQuery(appId, name, page, size));
+    }
+
+    @PutMapping("/{id}")
+    public Item update(@PathVariable("id") Long id, Item item) {
+        return null;
     }
 }
